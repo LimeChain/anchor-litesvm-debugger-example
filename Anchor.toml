@@ -6,8 +6,8 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-program-a = "ESHnYJDZfq2giPQeqmhqZucvPHiSVNjPoZxBV6dKKbHA"
-program-b = "6CSmiViMaAguKgxNVwU8TWMPViQbtL5KKoFrDwWwtYNR"
+program-a = "Gc75s6sCRZA9gykVSiAyUFqZFv6JAT5VeFZzWdWYeA5a"
+program-b = "3SxzmtpAYvFmK72f8wQ9QNzTHNDE7ekpAGV2ZUxAUucs"
 
 [registry]
 url = "https://api.apr.dev"

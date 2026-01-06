@@ -19,6 +19,7 @@ idl-build = ["anchor-lang/idl-build"]
 
 [dependencies]
 anchor-lang = "0.31.1"
+program-b = { path = "../program-b" }
 
 [dev-dependencies]
 litesvm = { git = "https://github.com/procdump/litesvm.git", branch = "v0.8.1_feat_dbg_prs", features = [ "sbpf-debugger" ]}

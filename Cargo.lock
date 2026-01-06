@@ -1787,6 +1787,7 @@ version = "0.1.0"
 dependencies = [
  "anchor-lang",
  "litesvm",
+ "program-b",
  "solana-bpf-loader-program",
  "solana-program-runtime",
  "solana-sbpf",

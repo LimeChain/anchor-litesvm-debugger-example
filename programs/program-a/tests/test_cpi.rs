@@ -2,6 +2,7 @@ use litesvm::{types::TransactionResult, LiteSVM};
 use solana_sdk::{
     message::{AccountMeta, Instruction, Message},
     pubkey,
+    pubkey::{Pubkey},
     signature::Keypair,
     signer::Signer,
     transaction::{Transaction, VersionedTransaction},
@@ -13,12 +14,12 @@ fn test_cpi() {
 
     // If test fails fix program_ID's
 
-    let program_id = pubkey!("ESHnYJDZfq2giPQeqmhqZucvPHiSVNjPoZxBV6dKKbHA");
+    let program_id = Pubkey::from(program_a::ID.to_bytes());
     svm.add_program_from_file(program_id, "../../target/deploy/program_a.so")
         .unwrap();
 
-    // Load program B
-    let program_b_id = pubkey!("6CSmiViMaAguKgxNVwU8TWMPViQbtL5KKoFrDwWwtYNR");
+    // // Load program B
+    let program_b_id = Pubkey::from(program_b::ID.to_bytes());
     svm.add_program_from_file(program_b_id, "../../target/deploy/program_b.so")
         .unwrap();
 
