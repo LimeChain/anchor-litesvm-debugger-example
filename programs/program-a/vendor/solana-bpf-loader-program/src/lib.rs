@@ -1464,6 +1464,19 @@ fn execute<'a, 'b: 'a>(
     let program_id = *instruction_context.get_program_key()?;
     let is_loader_deprecated =
         instruction_context.get_program_owner()? == bpf_loader_deprecated::id();
+    let debug_metadata = format!(
+		    "program_id={};cpi_level={};caller={}",
+		    program_id,
+		    instruction_context.get_stack_height().saturating_sub(1),
+		    (invoke_context.get_stack_height() > 1)
+		    .then(|| invoke_context.transaction_context
+			    .get_instruction_context_at_nesting_level(invoke_context.get_stack_height().saturating_sub(2)).ok()
+			    .and_then(|ctx| ctx.get_program_key().ok())
+			    .map(|key| key.to_string()))
+		    .flatten()
+		    .unwrap_or_else(|| "none".to_string()));
+    eprintln!("debug_metadata: {}", debug_metadata);
+
     #[cfg(any(target_os = "windows", not(target_arch = "x86_64")))]
     let use_jit = false;
     #[cfg(all(not(target_os = "windows"), target_arch = "x86_64"))]
