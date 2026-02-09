@@ -25,3 +25,4 @@ litesvm = "0.9.1"
 solana-sdk = "3"
 anchor-lang = { version = "0.31.1" }
 spl-associated-token-account = "7.0.0"
+gdbstub = "0.6.6"
